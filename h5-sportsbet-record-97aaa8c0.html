@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩网首页官方 · 知识库入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: #f4f6fa;
+      color: #1e2a3a;
+      line-height: 1.7;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2e 0%, #1b2f44 100%);
+      padding: 60px 20px 50px;
+      border-radius: 0 0 40px 40px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      color: #eef3fa;
+      font-weight: 600;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .hero .sub {
+      color: #b6cbe0;
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+      border-top: 1px solid #304a62;
+      padding-top: 16px;
+      display: inline-block;
+    }
+
+    /* 目录感布局：网格卡片 */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      padding-left: 10px;
+      margin: 40px 0 20px;
+      border-left: 6px solid #286090;
+      color: #1c3145;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 26px 22px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,20,40,0.05);
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+      border: 1px solid #e6edf4;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(31, 73, 125, 0.08);
+      border-color: #b9d0e6;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #1e3b5c;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2b4056;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #dae6f2;
+      color: #1f4168;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 2px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    /* 说明区 + 提示区 混合排列 */
+    .info-block {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 30px 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e2eaf2;
+    }
+
+    .info-block strong {
+      color: #1f4b77;
+    }
+
+    .info-block a {
+      color: #1d6fa5;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .info-block a:hover {
+      border-bottom-color: #1d6fa5;
+    }
+
+    .hint-box {
+      background: #eef4fa;
+      border-radius: 20px;
+      padding: 20px 24px;
+      margin: 28px 0 16px;
+      border-left: 6px solid #286090;
+    }
+
+    .hint-box p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+    }
+
+    .faq-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 30px;
+      margin-top: 20px;
+    }
+
+    .faq-item {
+      flex: 1 1 200px;
+      background: #f9fcff;
+      padding: 14px 18px;
+      border-radius: 18px;
+      border: 1px solid #dae4ef;
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      color: #1a3b5a;
+      margin-bottom: 4px;
+    }
+
+    .faq-item .a {
+      font-size: 0.9rem;
+      color: #38536e;
+    }
+
+    .separator {
+      text-align: center;
+      margin: 30px 0 10px;
+      color: #6e8aa8;
+      font-size: 0.75rem;
+      letter-spacing: 6px;
+    }
+
+    .footer-note {
+      background: #e9f0f7;
+      border-radius: 40px 40px 0 0;
+      padding: 30px 20px 25px;
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #2b4a69;
+    }
+
+    .footer-note a {
+      color: #1d6fa5;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .info-block {
+        padding: 22px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 深色头图 -->
+    <header class="hero">
+      <h1>竞彩网 · 知识库入口</h1>
+      <div class="sub">快速识别用途 · 目录式引导 · 信息说明</div>
+    </header>
+
+    <!-- 第一组卡片：目录感，网站用途识别 -->
+    <div class="section-title">📌 用途速览</div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="tag">官方背景</span>
+        <h3>竞彩赛事数据</h3>
+        <p>提供足球、篮球等主流赛事的竞猜参考与实时信息，面向已注册用户。</p>
+      </div>
+      <div class="card">
+        <span class="tag">核心功能</span>
+        <h3>开奖与公告</h3>
+        <p>可查询各玩法的开奖结果、奖金浮动及官方公告，数据与体彩同步。</p>
+      </div>
+      <div class="card">
+        <span class="tag">使用场景</span>
+        <h3>分析与投注</h3>
+        <p>适合有竞彩经验的用户查看赔率变化、赛事分析及个人账户管理。</p>
+      </div>
+      <div class="card">
+        <span class="tag">入口说明</span>
+        <h3>直接访问</h3>
+        <p>通过浏览器进入 <strong>竞彩网首页官方</strong> 即可使用全部功能。</p>
+      </div>
+    </div>
+
+    <!-- 说明区 + 提示区 合并展示 -->
+    <div class="info-block">
+      <h2 style="font-size:1.3rem; margin-bottom:12px;">🔍 网站定位说明</h2>
+      <p>
+        该平台是体彩竞猜的官方数字服务入口，主要面向对竞彩玩法有一定了解的用户。
+        与普通资讯站不同，<a href="https://h5-sportsbet.com">竞彩网首页官方</a> 
+        整合了赛事数据、开奖信息、账户中心等模块，用户登录后可查看个人投注记录及资金明细。
+      </p>
+      <p style="margin-top:14px;">
+        页面设计以信息查阅为核心，不包含任何形式的诱导或虚假承诺。所有开奖结果均以国家体育总局体育彩票管理中心发布的公告为准。
+      </p>
+
+      <div class="hint-box">
+        <p><strong>⚠️ 提示：</strong></p>
+        <p>· 本页仅作功能与入口介绍，不提供购彩、合买或加群等服务。</p>
+        <p>· 首次使用请通过 <a href="https://h5-sportsbet.com">竞彩网首页官方</a> 完成注册或登录，以启用完整权限。</p>
+        <p>· 如遇到页面加载异常，可尝试清理缓存或更换网络环境。</p>
+      </div>
+    </div>
+
+    <!-- 相关信息区：FAQ 摘要 + 补充说明 -->
+    <div class="section-title">📖 相关信息</div>
+    <div class="faq-summary">
+      <div class="faq-item">
+        <div class="q">需要注册吗？</div>
+        <div class="a">浏览部分数据无需登录，但查看个人订单、奖金明细需注册并绑定实名信息。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">支持哪些赛事？</div>
+        <div class="a">覆盖足球五大联赛、NBA、欧冠、日职、澳超等主流赛事，以及部分杯赛。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">数据更新频率？</div>
+        <div class="a">赔率和赛事信息实时更新，开奖结果在官方公布后同步显示。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">移动端适配？</div>
+        <div class="a">页面采用 H5 响应式设计，手机浏览器直接打开即可操作。</div>
+      </div>
+    </div>
+
+    <div class="separator">· · ·</div>
+
+    <!-- 第三个区块：使用前提醒 + 链接自然嵌入 -->
+    <div class="info-block" style="background:#f9fcff;">
+      <h2 style="font-size:1.2rem; margin-bottom:10px;">📋 使用前提醒</h2>
+      <p>
+        本平台仅面向年满 22 周岁的用户。所有竞猜行为需基于个人判断， 
+        平台不提供任何“稳赚”“必中”策略。如果你是第一次接触竞彩，建议先通过 
+        <a href="https://h5-sportsbet.com">竞彩网首页官方</a> 
+        了解玩法规则与术语说明，理性参与。
+      </p>
+      <p style="margin-top:14px;">
+        另外，请认准官方域名 h5-sportsbet.com，避免通过第三方链接访问，以防信息泄露或钓鱼风险。
+      </p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+      <p>本介绍页仅用于说明网站用途与功能结构，不构成任何投注建议。</p>
+      <p style="margin-top:6px;">
+        — 官方入口：<a href="https://h5-sportsbet.com">竞彩网首页官方</a> —
+      </p>
+    </div>
+  </div>
+</body>
+</html>
